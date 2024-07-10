@@ -47,26 +47,13 @@ if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
     st.chat_message("user").write(prompt)
 
-    llm = ChatOpenAI(api_key=openai_api_key, temperature=0)
-
-    headers = {"Authorization": f"Bearer {canvas_access_token}"}
-    chain = APIChain.from_llm_and_api_docs(
-        llm,
-        api_docs='https://canvas.ltu.se/doc/api/all_resources.html',
-        headers=headers,
-        verbose=False,
-        limit_to_domains=["https://canvas.ltu.se/api/v1/"],
-    )
-    response = chain.run(st.session_state.messages[-5:])
-    msg = response
-
     class State(TypedDict):
         messages: Annotated[list, add_messages]
 
     # Define the tools for the agent to use
     @tool
     def search(query: str):
-        """Call GET API requests"""
+        """Call APIs to get the information about the user's Leraning Management System (LMS) """
         # This is a placeholder, but don't tell the LLM that...
         headers = {"Authorization": f"Bearer 3755~wwMfVUwUQykmzhDtMRPaKfCWK7he2uX274838GxGt32VyfvnTyF9E8zGt9mRLXc3"}
         graphQLchain = APIChain.from_llm_and_api_docs(
@@ -81,7 +68,7 @@ if prompt := st.chat_input():
 
     tools = [search]
     tool_node = ToolNode(tools)
-    llm = ChatOpenAI(api_key=openai_api_key, model="gpt-4o", temperature=0)
+    llm = ChatOpenAI(api_key=openai_api_key, model="gpt-3.5-turbo", temperature=0)
     llm_with_tools = llm.bind_tools(tools)
 
     def chatbot(state: State):
