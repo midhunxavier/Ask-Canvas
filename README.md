@@ -1,25 +1,26 @@
 # 🎈 Ask Canvas 
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/llm-examples?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://laughing-waddle-5v596g6prpvc79wj.github.dev/)
 
-Starter examples for building LLM apps with Streamlit.
+Chat with your Canvas!
 
 ## Overview of the App
 
-This app showcases a growing collection of LLM minimum working examples.
+This app is provides give information about your Canvas based on your given access token
 
-Current examples include:
-
-- Chatbot
-- File Q&A
-- Chat with Internet search
-- LangChain Quickstart
-- LangChain PromptTemplate
-- Chat with user feedback
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://llm-examples.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://askcanvas.streamlit.app/)
+
+### Get an Get a Canvas Access Token  (Example (LTU))
+
+You can get your own Canvas Access Token by following the following instructions:
+
+1. Go to https://canvas.ltu.se/profile/settings.
+2. Click on the `+ Create new secret key` button.
+
+
 
 ### Get an OpenAI API key
 
@@ -29,16 +30,6 @@ You can get your own OpenAI API key by following the following instructions:
 2. Click on the `+ Create new secret key` button.
 3. Next, enter an identifier name (optional) and click on the `Create secret key` button.
 
-### Enter the OpenAI API key in Streamlit Community Cloud
-
-To set the OpenAI API key as an environment variable in Streamlit apps, do the following:
-
-1. At the lower right corner, click on `< Manage app` then click on the vertical "..." followed by clicking on `Settings`.
-2. This brings the **App settings**, next click on the `Secrets` tab and paste the API key into the text box as follows:
-
-```sh
-OPENAI_API_KEY='xxxxxxxxxx'
-```
 
 ## Run it locally
 
