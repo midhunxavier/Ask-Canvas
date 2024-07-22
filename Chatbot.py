@@ -55,7 +55,7 @@ if prompt := st.chat_input():
     def search(query: str):
         """Call APIs to get the information about the user's Leraning Management System (LMS) """
         # This is a placeholder, but don't tell the LLM that...
-        headers = {"Authorization": f"Bearer 3755~wwMfVUwUQykmzhDtMRPaKfCWK7he2uX274838GxGt32VyfvnTyF9E8zGt9mRLXc3"}
+        headers = {"Authorization": f"Bearer "+ canvas_access_token}
         graphQLchain = APIChain.from_llm_and_api_docs(
             llm,
             api_docs='https://canvas.ltu.se/doc/api/all_resources.html',
